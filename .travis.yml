@@ -4,10 +4,10 @@ jobs:
   include:
     - stage: Docker build Stage
       script:
-        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" -- password-stdin
-        - docker build -t devops .
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker build -t myrepo .
         - docker images
-        - docker tag devops $DOCKER_USERNAME/devops:$TRAVIS_BUILD_NUMBER
-        - docker push $DOCKER_USERNAME/devops:$TRAVIS_BUILD_NUMBER
-        - docker tag devops $DOCKER_USERNAME/devops
-        - docker push $DOCKER_USERNAME/devops:latest
+        - docker tag myrepo $DOCKER_USERNAME/myrepo:$TRAVIS_BUILD_NUMBER
+        - docker push $DOCKER_USERNAME/myrepo:$TRAVIS_BUILD_NUMBER
+        - docker tag myrepo $DOCKER_USERNAME/myrepo
+        - docker push $DOCKER_USERNAME/myrepo:latest
