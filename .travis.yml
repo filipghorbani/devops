@@ -4,7 +4,7 @@ jobs:
   include:
     - stage: Docker build Stage
       script:
-        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - echo "$DOCKER_TOKEN" | docker login -username "$DOCKER_USERNAME"
         - docker build -t myrepo .
         - docker images
         - docker tag myrepo $DOCKER_USERNAME/myrepo:$TRAVIS_BUILD_NUMBER
