@@ -10,4 +10,4 @@ jobs:
         - docker tag devops $DOCKER_USERNAME/devops:$TRAVIS_BUILD_NUMBER
         - docker push $DOCKER_USERNAME/devops:$TRAVIS_BUILD_NUMBER
         - docker tag devops $DOCKER_USERNAME/devops
-        - docker push $DOCKER_USERNAME/devops:lastest
+        - docker push $DOCKER_USERNAME/devops:latest
